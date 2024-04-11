@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+}
+header{
+    font-size:larger;
+}
+#sim{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.Hello{
+    color: brown;
+}
