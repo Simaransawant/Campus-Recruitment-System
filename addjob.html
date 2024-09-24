@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="addjob.css">
+</head>
+
+<body>
+    <!-- <div class="logo">
+        <img src="logo.png" alt="">
+    </div> -->
+    <div>
+        <div class="container">
+            <h1 class="FormTitle">New Job</h1>
+            <form action="sreg.php" method="post">
+                <div class="main-user-info">
+                    <div class="user-input-box">
+                        <label for="Company Name">Company Name</label>
+                        <input type="text" id="Company Name" name="CompanyName" placeholder=" Name">
+
+                    </div>
+                    <div class="user-input-box">
+                        <label for="Positions">Positions</label>
+                        <input type="text" id="Positions" name="Positions" placeholder="Name">
+
+                    </div>                   
+
+                    <div class="user-input-box">
+                        <label for="Job Category">Job Category:</label>
+                        <select name="JobCategory" >
+                            <option name="JobCategory0" value="0" selected="selected" disabled="disabled" id="JobCategory" >Choose</option>
+                            <option name="JobCategory1" value="1">QA Analyst</option>
+                            <option name="JobCategory2" value="2">Web Developer</option>
+                            <option name="JobCategory3" value="3"> Security Analyst</option>
+                            <option name="JobCategory4" value="4">Java Developer</option>
+                            <option name="JobCategory5" value="5">Big Data Analyst</option>
+                        </select>
+                    </div>
+                    <div class="user-input-box">
+                        <label for="Job Type">Job Type:</label>
+                        <select name="JobType">
+                            <option name="JobType0" value="0" selected="selected" disabled="disabled" id="JobType">Choose</option>
+                            <option name="JobType1" value="1">Part-Time</option>
+                            <option name="JobType2" value="2">Full-Time</option>
+                            <option name="JobType3" value="3">Freelancer</option>
+         
+                        </select>
+                    </div>
+                    <div class="user-input-box">
+                        <label for="Vacancy">No.of Vacancy</label>
+                        <input type="text" id="Vacancy" name="Vacancy" placeholder="Name">
+
+                    </div>
+
+                    <div class="user-input-box">
+                        <label for="Select Experience">Select Experience:</label>
+                        <select name="SelectExperience">
+                            <option name="SelectExperience" value="0" selected="selected" disabled="disabled" id="select_opt">1yr</option>
+                            <option name="SelectExperience" value="1">1yr</option>
+                            <option name="SelectExperience" value="2">2yr</option>
+                            <option name="SelectExperience" value="3">3yr</option>
+                            <option name="SelectExperience" value="3">4yr</option>
+         
+                        </select>
+                    </div>
+                    
+                    <div class="user-input-box">
+                     <label for="Posted Date">Posted Date</label>
+                     <input type="date" id="Posted Date" name="PostedDate">
+
+                    </div>
+                    
+                    <div class="user-input-box">
+                        <label for="datepicker" class="form-label">Select Date</label>
+                        <input type="date" id="datepicker" name="datepicker">
+                    </div>
+
+                </div>
+                <div class="gender-details-box">
+                    <span class="gender-title"> Gender</span>
+                    <div class="gender-category">
+                        <input type="radio" name="Gender" id="Male">
+                        <label for="Male">Male</label>
+                        <input type="radio" name="Gender" id="Female">
+                        <label for="Female">Female</label>
+                        <input type="radio" name="Gender" id="Other">
+                        <label for="Other">Other</label>
+                    </div>
+                    <!-- <div class="user-input">
+                        <label for="UploadCV">Upload CV:</label>
+                        <input type="file" id="UploadCV" name="resume">
+                    </div> -->
+                </div>
+
+                <div class="Form-submit-btn">
+                    <input class="button" type="submit" value="submit" name="submit" >
+
+                    <input class="button" type="reset" value="reset">
+
+                </div>
+            </form>
+
+
+
+        </div>
+
+
+
+    </div>
+</body>

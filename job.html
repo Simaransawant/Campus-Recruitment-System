@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/font/bootstrap-icons.css">
+    <style>
+        #sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            background-color:rgb(244, 132, 132);
+            padding-top: 20px;
+            color: rgb(239, 47, 198);
+            overflow-y: auto; /* Make the sidebar scrollable */
+            max-height: 100vh; /* Set a maximum height */
+        }
+
+        #sidebar a, .dropdown-item {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            width: 100%;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #sidebar a:hover, .dropdown-item:hover {
+            color: #f8f9fa;
+        }
+
+        .dropdown-container {
+            display: none;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 70px;
+        }
+
+        #top-navbar {
+            background-color:rgb(244, 132, 132);
+            color: rgb(11, 10, 10);
+            padding: 10px;
+            position: fixed;
+            width: 80%;
+            z-index: 1000;
+            margin-left: 250px;
+        }
+        img{
+            height: 60px;
+            width: 60px;
+            margin-left: 20px;
+        }
+        /* #top-navbar {
+            background-color: #6C757D;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        } */
+
+        .navbar-icons {
+            font-size: 24px;
+            color: rgb(104, 8, 97);
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .form-control {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top-navbar">
+        <h4>Admin Panel</h4>
+        
+        <!-- Add additional elements to your top navbar as needed -->
+         </div>
+
+    <div id="sidebar">
+        <!-- <a href="#" class="list-group-item list-group-item-action text-black ">Dashboard</a> -->
+        <div class="Logo">
+            <img src="university_8074800.png" alt="">
+            
+        </div>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle text-black " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Dashboard
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item text-danger " href="#">Jobs</a></li>
+                <li><a class="dropdown-item text-danger " href="#">Applications</a></li>
+                <li><a class="dropdown-item text-danger " href="#">Placement statistics</a></li>
+                <li><a class="dropdown-item text-danger " href="#">Companies</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle text-black " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Jobs
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item text-danger " href="#">Job Lists</a></li>
+                <li><a class="dropdown-item text-danger " href="123.html">New Jobs</a></li>
+                <!-- <li><a class="dropdown-item text-danger " href="#">Item 3</a></li> -->
+            </ul>
+        </div>
+
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle text-black " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Student
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item text-danger " href="#">Add Students</a></li>
+                <li><a class="dropdown-item text-danger " href="#">Manage Students</a></li>
+                <!-- <li><a class="dropdown-item text-danger " href="#">Item 3</a></li> -->
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="list-group-item list-group-item-action dropdown-toggle text-black " href="#" role="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Communication
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                <li><a class="dropdown-item text-danger " href="#">Send Notifications</a></li>
+                <li><a class="dropdown-item text-danger" href="#">Manage Announcement</a></li>
+            </ul>
+        </div>
+        
+
+        <div class="dropdown">
+            <a class="list-group-item list-group-item-action dropdown-toggle text-black " href="#" role="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Settings
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                <li><a class="dropdown-item text-danger " href="#">General Settings</a></li>
+                <li><a class="dropdown-item text-danger" href="#">Account Settings</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="list-group-item list-group-item-action dropdown-toggle text-black " href="#" role="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Security
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                <li><a class="dropdown-item text-danger " href="#">Change Password</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="dropdown">
+            <a class="list-group-item list-group-item-action dropdown-toggle text-black " href="#" role="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Support
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                <li><a class="dropdown-item text-danger " href="#">Feedback</a></li>
+                <li><a class="dropdown-item text-danger" href="#">Help Center</a></li>
+            </ul>
+        </div>
+
+        <!-- Add more items as needed -->
+
+        <a href="#" class="list-group-item list-group-item-action text-black">Logout</a>
+    </div>
+
+    <div id="content">
+        <!-- Page content goes here -->
+        <h2>Admin Panel</h2>
+        <p>Welcome to the admin panel. Use the sidebar and top navbar to navigate through different sections.</p>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

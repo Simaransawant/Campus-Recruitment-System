@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 600px;
+    background: rgb(171, 170, 170);
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: inset -2px 2px 2px rgb(227, 217, 217);
+    margin-left: 330px;
+}
+
+.FormTitle {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    /* margin: 90px; */
+    padding: 0px;
+    /* padding-bottom: 6px; */
+    color: rgb(10, 10, 10);
+    cursor: default;
+}
+
+.main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* padding: 20px 0; */
+}
+
+.put-box {
+    width: 100%;
+}
+
+.user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.user-input-box label {
+    width: 95%;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+
+}
+.user-input-box select{
+    width: 227px;
+    border-radius: 10px;
+    font-size:20px ;
+}
+
+.user-input-box input {
+    height: 30px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+
+.gender-details-box {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.gender-title {
+    padding-top: 200px;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    /* padding-top: 20px; */
+    cursor: default;
+}
+
+.gender-category {
+    margin: 15px 0;
+    color: black;
+    cursor: default;
+}
+
+.gender-category label {
+    padding: 0 20px 0 5px;
+    width: 100%;
+
+}
+
+.user-input label {
+
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: default;
+}
+
+.sub {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: default;
+}
+
+.Form-submit-btn {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.Form-submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    background:green;
+    justify-content: space-between;
+}
+
+.button {
+    margin: 10px;
+}
+/* #select_opt {
+    opacity: 0.5;
+} */
+
+/* .Form-submit-btn input:hover{
+    background: rgb(13, 147, 22);
+    color: rgb(255, 255, 255);
+} */

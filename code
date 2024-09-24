@@ -1,0 +1,31 @@
+<tbody>
+    <?php
+    $display_data = mysqli_query($connection, "SELECT * FROM `student`");
+
+    if (mysqli_num_rows($display_data) > 0) {
+        while ($row = mysqli_fetch_assoc($display_data)) {
+            ?>
+            <tr>
+                <td><?php echo $row['FullName']; ?></td>
+                <td><?php echo $row['UserName']; ?></td>
+                <td><?php echo $row['Studentemail']; ?></td>
+                <td><?php echo $row['PhoneNumber']; ?></td>
+                <td><?php echo $row['DateofBirth']; ?></td>
+                <td><?php echo $row['EnrolmentNo']; ?></td>
+                <td><?php echo $row['yearLevel']; ?></td>
+                <td><?php echo $row['DegreeProgram']; ?></td>
+                <td><?php echo $row['Gender']; ?></td> <!-- Add this line for displaying gender -->
+                <td>
+                    <div>
+                        <a href="deletestudents.php?delete=<?php echo $row['ID']; ?>" class="btn2-edit">Delete</a>
+                        <a href="edit.php?edit=<?php echo $row['ID']; ?>" class="btn2-edit">Edit</a>
+                    </div>
+                </td>
+            </tr>
+            <?php
+        }
+    } else {
+        echo "<tr><td colspan='10'>No Students found</td></tr>";
+    }
+    ?>
+</tbody>

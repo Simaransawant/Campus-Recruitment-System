@@ -1,0 +1,108 @@
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "addjob";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgb(6, 120, 73);
+        }
+        .btn1{
+            border: 2px solid black ;
+             padding: 4px;
+             margin: 2px;
+            background-color: rgb(6, 120, 73);
+            color: white;
+            text-decoration: none;
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Job List</h1>
+
+    <table>
+        <thead>
+            <th>Company Name</th>
+            <th>Position</th>
+            <th>Job Category</th>
+            <th>Job Type</th>
+           
+            <th>Posted Date</th>
+            <th>Last Date To Apply</th>
+            <th>Close Date</th>
+            <th>Action</th>
+           
+        </thead>
+        <tbody>
+            <?php
+            $display_data = mysqli_query($conn, "SELECT * FROM `jobs`");
+
+            if (mysqli_num_rows($display_data) > 0) {
+                while ($row = mysqli_fetch_assoc($display_data)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $row['companyName'] ?></td>
+                        <td><?php echo $row['position'] ?></td>
+                        <td><?php echo $row['jobCategory'] ?></td>
+                        <td><?php echo $row['jobType'] ?></td>
+                        
+                        <td><?php echo $row['postedDate'] ?></td>
+                        <td><?php echo $row['lastDateToApply'] ?></td>
+                        <td><?php echo $row['CloseDate'] ?></td>
+                   
+
+                        <td>
+                            <div>
+                                <a href="delete.php?delete=<?php echo $row['id'] ?>" class="btn1">Delete</a>
+                                <a href="update.php?edit=<?php echo $row['id'] ?>" class="btn1">Edit</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            } else {
+                echo "<tr><td colspan='14'>No job listings found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</body>
+
+</html>

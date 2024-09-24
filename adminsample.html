@@ -1,0 +1,217 @@
+<!-- Updated script in the head section of your HTML file -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        showSection('dashboard-content');
+    });
+
+    function loadContent(contentPath) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("content").innerHTML = this.responseText;
+                sessionStorage.setItem('currentContent', contentPath);
+            }
+        };
+        xhttp.open("GET", contentPath, true);
+        xhttp.send();
+    }
+
+    function showSection(sectionId) {
+        var sections = document.getElementsByClassName('content-section');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
+        }
+        document.getElementById(sectionId).style.display = 'block';
+
+        var storedContent = sessionStorage.getItem('currentContent');
+        if (storedContent) {
+            loadContent(storedContent);
+        }
+    }
+
+    function toggleDropdown(dropdownId) {
+        var dropdown = document.getElementById(dropdownId);
+        var dropdowns = document.getElementsByClassName('dropdown-content');
+        for (var i = 0; i < dropdowns.length; i++) {
+            if (dropdowns[i] !== dropdown) {
+                dropdowns[i].style.display = 'none';
+            }
+        }
+        dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Add this event listener to close dropdown when clicking open dropdown button
+    document.addEventListener("click", function (event) {
+        var dropdownButtons = document.getElementsByClassName('dropdown-button');
+        for (var i = 0; i < dropdownButtons.length; i++) {
+            if (event.target.matches('.dropdown-button')) {
+                var dropdownId = event.target.getAttribute('data-dropdown');
+                var dropdown = document.getElementById(dropdownId);
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            }
+        }
+    });
+</script>
+
+<!-- Updated HTML structure -->
+
+<!-- ... Your existing head, navigation, and styling ... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="456.css">
+    <style>
+        /* Your styles remain unchanged */
+    
+        
+
+    </style>
+</head>
+
+<body>
+    <nav style="background-color: #bb1c1c;" class="navbar navbar-expand-lg custom-bg m-0 bg-black  ">
+        <!-- ... Your navigation content ... -->
+    </nav>
+    <div id="admin-panel">
+        <div id="sidebar">
+            <!-- ... Your existing sidebar content ... -->
+             
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('dashboard-dropdown')">Dashboard</a>
+                <div id="dashboard-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('Jobs-content')">Jobs</a>
+                    <a href="#" onclick="showSection('Applications-content')">Applications</a>
+                    <a href="#" onclick="showSection('Placement-Statistics-content')">Placement Statistics</a>
+                    <a href="#" onclick="showSection('Companies-content')">Companies</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('Jobs-dropdown')">Jobs</a>
+                <div id="Jobs-dropdown" class="dropdown-content text-bg-danger">
+                    <a href="joblist.php" onclick="showSection('Jobs-List-content')">Job List</a>
+                    <a href="#" onclick="showSection('add-job-content')">New Jobs</a>
+                </div>
+            </div>
+            
+            <!-- <a href="#" onclick="showSection('students-content')">Students</a> -->
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('Students-dropdown')">Students</a>
+                <div id="Students-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('Add-Students-content')">Add Students</a>
+                    <a href="managestudents.php" onclick="showSection('manage-Students-content')">Manage Students</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('communication-dropdown')">Communication</a>
+                <div id="communication-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('send-notifications-content')">Send Notifications</a>
+                    <a href="#" onclick="showSection('manage-announcement-content')">Manage Announcement</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('Settings-dropdown')">Settings</a>
+                <div id="Settings-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('General-Settings-content')">General Settings</a>
+                    <a href="#" onclick="showSection('Account-Settings-content')">Account Settings</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('Security-dropdown')">Security</a>
+                <div id="Security-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('Change-Passwords-content')">Change Passwords</a>
+                    
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" onclick="toggleDropdown('Support-dropdown')">Support</a>
+                <div id="Support-dropdown" class="dropdown-content text-bg-danger  ">
+                    <a  href="#" onclick="showSection('Feedback-content')">Feedback</a>
+                    <a  href="#" onclick="showSection('Help-Center-content')">Help Center</a>
+
+                    
+                </div>
+            </div>
+            <a href="#" onclick="showSection('Logout-content')">Logout</a>
+            
+            <!-- <a href="#" onclick="showSection('add-job-content')">Add Job</a> -->
+            <!-- Add more sidebar links as needed -->
+        </div>
+        </div>
+
+        <div id="content">
+            <div class="dashboard">
+                <div id="dashboard-content" class="content-section">
+                    <!-- Content for Dashboard goes here -->
+                    <h3>Dashboard Section</h3>
+                    <p>Content for the Dashboard section...</p>
+                </div>
+            </div>
+
+            <div class="jobs">
+                <div id="add-job-content" class="content-section">
+                    <!-- Content for Add Job goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <!-- Add more job-related content sections as needed -->
+            </div>
+
+            <div class="students">
+                <div id="Add-Students-content" class="content-section">
+                    <!-- Content for Add Students goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <div id="manage-Students-content" class="content-section">
+                    <!-- Content for Manage Students goes here -->
+                    <!-- ... Your existing content ... -->
+                </div>
+                <!-- Add more student-related content sections as needed -->
+            </div>
+
+            <div class="communication">
+                <div id="send-notifications-content" class="content-section">
+                    <!-- Content for Send Notifications goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <div id="manage-announcement-content" class="content-section">
+                    <!-- Content for Manage Announcement goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <!-- Add more communication-related content sections as needed -->
+            </div>
+
+            <div class="settings">
+                <div id="Account-Settings-content" class="content-section">
+                    <!-- Content for Account Settings goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <!-- Add more settings-related content sections as needed -->
+            </div>
+
+            <div class="security">
+                <div id="Change-Passwords-content" class="content-section">
+                    <!-- Content for Change Passwords goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <!-- Add more security-related content sections as needed -->
+            </div>
+
+            <div class="support">
+                <div id="Feedback-content" class="content-section">
+                    <!-- Content for Feedback goes here -->
+                    <!-- ... Your existing form content ... -->
+                </div>
+                <!-- Add more support-related content sections as needed -->
+            </div>
+
+            <!-- Add more content sections as needed -->
+        </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

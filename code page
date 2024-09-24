@@ -1,0 +1,51 @@
+<?php
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Connect to your MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "addjob";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle job submission
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+    $companyName = $_POST["companyName"];
+    $position = $_POST["position"];
+    $jobCategory = $_POST["jobCategory"];
+    $jobType = $_POST["jobType"];
+    $noOfVacancy = $_POST["noOfVacancy"];
+    $experience = $_POST["SelectExperience"];
+    $postedDate = $_POST["postedDate"];
+    $lastDateToApply = $_POST["lastDateToApply"];
+    $closeDate = $_POST["CloseDate"];
+    $gender = $_POST["SelectGender"];
+    $salaryFrom = $_POST["SalaryFrom"];
+    $salaryTo = $_POST["SalaryTo"];
+    $location = $_POST["Location"];
+    $description = $_POST["description"];
+
+    // Perform SQL insert
+    $sql = "INSERT INTO jobs (companyName, position, jobCategory, jobType, noOfVacancy, SelectExperience, postedDate, lastDateToApply, closeDate, SelectGender, salaryFrom, salaryTo, location, description)
+            VALUES ('$companyName', '$position', '$jobCategory', '$jobType', '$noOfVacancy', '$experience', '$postedDate', '$lastDateToApply', '$closeDate', '$gender', '$salaryFrom', '$salaryTo', '$location', '$description')";
+
+    if ($conn->query($sql) === TRUE) {
+        // echo "Job submitted successfully";
+        header("Location: joblist.php?" . http_build_query($_POST));
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }   
+}
+$conn->close();
+?>
